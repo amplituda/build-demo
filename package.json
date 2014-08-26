@@ -1,0 +1,29 @@
+{
+  "name": "vcl-build-demo",
+  "version": "1.0.0",
+  "description": "Containes gulp tasks to build demo pages for vcl repos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "n-fuse GmbH",
+    "email": "info@n-fuse.de",
+    "url": "www.n-fuse.de"
+  },
+  "contributors": [
+    {
+      "name": "Filip Weiss",
+      "email": "me@fiws.net"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "gulp-connect": "^2.0.6",
+    "gulp-util": "^3.0.0",
+    "lodash": "^2.4.1",
+    "opn": "^1.0.0",
+    "resolve": "^1.0.0",
+    "through2": "^0.6.1"
+  }
+}
