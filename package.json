@@ -17,6 +17,10 @@
       "email": "me@fiws.net"
     }
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vcl/vcl-build-demo.git"
+  },
   "license": "MIT",
   "dependencies": {
     "gulp-connect": "^2.0.6",
