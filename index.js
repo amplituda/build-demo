@@ -67,6 +67,11 @@ tasks.filterStylesSync = function filterStylesModules(imports){
       imports = _.keys(imports);
   }
 
+  var packageFilter = function pkgFilter(pack){
+    pack.main = pack.main || pack.style;
+    return pack;
+  };
+
   return _.filter(imports, function(name){
     if (_.isString(name) === false) return false;
     if (name[0] === '.' || name[0] === '/'){
@@ -76,7 +81,10 @@ tasks.filterStylesSync = function filterStylesModules(imports){
 
     // check for node module
     try{
-      var npmPackage = resolve.sync(name, { basedir: mainModule });
+      var npmPackage = resolve.sync(name, {
+         basedir: mainModule,
+         packageFilter: packageFilter
+      });
       var jsonLocation = path.dirname(npmPackage) + '/package.json';
       var json = require(jsonLocation);
       if (json.style === undefined) return false;
