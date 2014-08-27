@@ -42,7 +42,7 @@ tasks.wrapHtml = function(options){
       var title = "Demo of: " + options.title || "VCL Demo Page";
       var result = template({
         content: html,
-        styles: ['index.css'],
+        styles: options.styles || ['index.css'],
         title: title
       });
       file.contents = new Buffer(result);
