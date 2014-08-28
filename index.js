@@ -67,8 +67,9 @@ tasks.filterStylesSync = function filterStylesModules(imports){
       imports = _.keys(imports);
   }
 
+  // Some style packages don't have a main field (in the package.json)
   var packageFilter = function pkgFilter(pack){
-    pack.main = pack.main || pack.style;
+    pack.main = pack.main || pack.style;   // But they should have a style field
     return pack;
   };
 
@@ -83,7 +84,7 @@ tasks.filterStylesSync = function filterStylesModules(imports){
     try{
       var npmPackage = resolve.sync(name, {
          basedir: mainModule,
-         packageFilter: packageFilter
+         packageFilter: packageFilter // set main field if not set
       });
       var jsonLocation = path.dirname(npmPackage) + '/package.json';
       var json = require(jsonLocation);
