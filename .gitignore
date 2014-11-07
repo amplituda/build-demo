@@ -1,3 +1,6 @@
+.project
+.svn
+
 lib-cov
 *.seed
 *.log
