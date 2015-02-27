@@ -8,8 +8,25 @@
   <% _.forEach(styles, function(href) { %>
     <link rel="stylesheet" href="<%- href %>">
   <% }); %>
+  <script>
+  // Function to inline HTML imports
+  function inlineHtmlImports() {
+    var nl = document.querySelectorAll('link[rel="import"]');
+    for (var i = 0; i < nl.length; ++i) {
+      var node = nl[i];
+      var content = node.import.querySelectorAll('body > *');
+      // Hack to convert nodelist to real JS-array
+      content = Array.prototype.slice.call(content);
+      content.map(function(node) {
+        document.body.appendChild(node.cloneNode(true));
+      });
+      document.body.appendChild(document.createElement('br'));
+      document.body.appendChild(document.createElement('br'));
+    }
+  }
+  </script>
 </head>
-<body>
+<body onload="inlineHtmlImports();">
   <%= content %>
 </body>
 </html>
