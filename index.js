@@ -16,7 +16,7 @@ var mainModule = path.dirname(module.parent.filename);
 var tasks = {};
 
 var rPath = function realPath(path){
-  return mainModule + "/" + path;
+  return mainModule + '/' + path;
 };
 
 tasks.connect = connect;
@@ -32,14 +32,13 @@ tasks.server = function(){
   };
 };
 
-
 tasks.wrapHtml = function(options){
   options = options || {};
   var template = _.template(fs.readFileSync(__dirname + '/index.html'));
   var stream = through.obj(function(file, enc, cb) {
     if (file.isBuffer()) {
       var html = file.contents.toString('utf8');
-      var title = "Demo of: " + options.title || "VCL Demo Page";
+      var title = 'Demo of: ' + options.title || 'VCL Demo Page';
       var result = template({
         content: html,
         styles: options.styles || ['index.css'],
@@ -63,8 +62,8 @@ tasks.wrapHtml = function(options){
 
 tasks.filterStylesSync = function filterStylesModules(imports){
   if (_.isArray(imports) === false && _.isObject(imports)){
-      // probably from package.json
-      imports = _.keys(imports);
+    // probably from package.json
+    imports = _.keys(imports);
   }
 
   // Some style packages don't have a main field (in the package.json)
@@ -91,7 +90,7 @@ tasks.filterStylesSync = function filterStylesModules(imports){
       if (json.style === undefined) return false;
       else return true;
     } catch (err) {
-      gutil.log("[filterStylesSync] require error: " + err.message);
+      gutil.log('[filterStylesSync] require error: ' + err.message);
       return false;
     }
 
@@ -102,8 +101,8 @@ tasks.preprocess = function preprocess(options){
   options = options || {};
 
   if (!_.isArray(options.injectImports) && _.isObject(options.injectImports)){
-      // probably from package.json but not filtered
-      options.injectImports = _.keys(options.injectImports);
+    // probably from package.json but not filtered
+    options.injectImports = _.keys(options.injectImports);
   }
 
   var vcl = require('vcl-preprocessor');
@@ -123,7 +122,7 @@ tasks.preprocess = function preprocess(options){
       } catch (err){
         this.emit("error", new PluginError('vcl-build.demo', err));
       }
-      file.path = path.basename(file.path, 'styl') + "css";
+      file.path = path.basename(file.path, 'styl') + 'css';
     }
 
     if (file.isStream()) {
