@@ -20,8 +20,10 @@
       content.map(function(node) {
         document.body.appendChild(node.cloneNode(true));
       });
-      document.body.appendChild(document.createElement('br'));
-      document.body.appendChild(document.createElement('br'));
+      if (i + 1 < nl.length) {
+        document.body.appendChild(document.createElement('br'));
+        document.body.appendChild(document.createElement('br'));
+      }
     }
   }
   </script>
