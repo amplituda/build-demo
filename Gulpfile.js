@@ -1,11 +1,23 @@
 /* jshint node:true */
 'use strict';
+var fs = require('fs');
 var gulp = require('gulp');
-var tasks = require('build-demo');
 var pack = require('./package.json');
-var devStyles = tasks.filterStylesSync(pack.devDependencies);
+var tasks = require('build-demo');
 
-gulp.task('css', function(){
+var devStyles = tasks.filterStylesSync(pack.devDependencies);
+var styles = [];
+var stylesFilename = 'demo/styles.json';
+
+if (fs.existsSync(stylesFilename)) {
+  try {
+    styles = JSON.parse(fs.readFileSync(stylesFilename, 'utf-8'));
+  } catch (err) {
+    console.log('demo/styles.json parse error', err);
+  }
+}
+
+gulp.task('css', function() {
   gulp.src('./index.styl')
     .pipe(tasks.preprocess({ injectImports: devStyles }))
     .pipe(tasks.connect.reload())
@@ -14,9 +26,9 @@ gulp.task('css', function(){
 
 gulp.task('server', ['css', 'html'], tasks.server());
 
-gulp.task('html', function(){
+gulp.task('html', function() {
   gulp.src('demo/*.html')
-    .pipe(tasks.wrapHtml({title: pack.name}))
+    .pipe(tasks.wrapHtml({title: pack.name, styles: styles}))
     .pipe(tasks.connect.reload())
     .pipe(gulp.dest('build'));
 });
