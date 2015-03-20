@@ -1,7 +1,7 @@
 /* jshint node:true */
 'use strict';
 var gulp = require('gulp');
-var tasks = require('vcl-build-demo');
+var tasks = require('build-demo');
 var pack = require('./package.json');
 var devStyles = tasks.filterStylesSync(pack.devDependencies);
 
