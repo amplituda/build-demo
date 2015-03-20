@@ -1,9 +1,10 @@
 {
   "name": "build-demo",
   "version": "0.1.0",
-  "description": "Containes gulp tasks to build demo pages for vcl repos",
+  "description": "Contains Gulp tasks and an HTML scaffold to build demo pages for VCL repos",
   "main": "index.js",
   "scripts": {
+    "postinstall": "cp ./Gulpfile.js ../../",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": {
@@ -13,8 +14,8 @@
   },
   "contributors": [
     {
-      "name": "Filip Weiss",
-      "email": "me@fiws.net"
+      "name": "Thomas Hoppe",
+      "email": "thomas.hoppe@n-fuse.de"
     }
   ],
   "repository": {
