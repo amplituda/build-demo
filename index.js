@@ -39,6 +39,9 @@ tasks.wrapHtml = function(options){
     if (file.isBuffer()) {
       var html = file.contents.toString('utf8');
       var title = 'Demo of: ' + options.title || 'VCL Demo Page';
+      if (options.styles && options.styles.indexOf('index.css') === -1) {
+        options.styles.push('index.css');
+      }
       var result = template({
         content: html,
         styles: options.styles || ['index.css'],
