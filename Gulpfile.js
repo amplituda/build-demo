@@ -3,7 +3,7 @@
 var fs = require('fs');
 var gulp = require('gulp');
 var pack = require('./package.json');
-var tasks = require('build-demo');
+var tasks = require('vcl-build-demo');
 
 var devStyles = tasks.filterStylesSync(pack.devDependencies);
 var styles = [];
