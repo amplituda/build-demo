@@ -1,5 +1,5 @@
 {
-  "name": "build-demo",
+  "name": "vcl-build-demo",
   "version": "0.1.0",
   "description": "Contains Gulp tasks and an HTML scaffold to build demo pages for VCL repos",
   "main": "index.js",
