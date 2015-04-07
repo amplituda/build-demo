@@ -5,7 +5,8 @@ var gulp = require('gulp');
 var pack = require('./package.json');
 var tasks = require('vcl-build-demo');
 
-var devStyles = tasks.filterStylesSync(pack.devDependencies);
+var vcl = require('gulp-vcl-preprocessor');
+
 var styles = [];
 var stylesFilename = 'demo/styles.json';
 
@@ -18,8 +19,12 @@ if (fs.existsSync(stylesFilename)) {
 }
 
 gulp.task('css', function() {
-  gulp.src('./index.styl')
-    .pipe(tasks.preprocess({ injectImports: devStyles }))
+  gulp.src('./package.json')
+    .pipe(vcl({
+      package: true,
+      includeDevDependencies: true,
+      output: 'index.css'
+     }))
     .pipe(tasks.connect.reload())
     .pipe(gulp.dest('./build'));
 });
