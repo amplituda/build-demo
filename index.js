@@ -24,7 +24,7 @@ tasks.server = function(){
   return function server(){
     connect.server({
       root: [ rPath(''), rPath('build'), rPath('node_modules') ],
-      port: 8000,
+      port: 8077,
       livereload: true
     });
     opn('http://localhost:8000/example.html');
