@@ -27,7 +27,7 @@ tasks.server = function(){
       port: 8077,
       livereload: true
     });
-    opn('http://localhost:8000/example.html');
+    opn('http://localhost:8077/example.html');
   };
 };
 
