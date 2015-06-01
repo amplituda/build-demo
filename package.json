@@ -22,10 +22,7 @@
     "type": "git",
     "url": "git://github.com/vcl/build-demo.git"
   },
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/vcl/build-demo/blob/master/LICENSE.txt"
-  },
+  "license": "MIT",
   "dependencies": {
     "gulp-connect": "^2.0.6",
     "gulp-util": "^3.0.0",
@@ -35,3 +32,4 @@
     "through2": "^0.6.1"
   }
 }
+
