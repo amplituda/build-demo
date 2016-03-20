@@ -2,7 +2,7 @@
 
 This module contains:
 
-- Gulp tasks to build and serve demos of VCL modules.
+- A Gulp tasks to build and serve demos of VCL modules.
 - HTML scaffold used for all demos.
 
 Building a demo means to:

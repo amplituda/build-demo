@@ -24,12 +24,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "gulp-connect": "^2.2.0",
+    "gulp-connect": "^3.2.0",
     "gulp-util": "^3.0.0",
-    "lodash": "^3.10.0",
-    "opn": "^3.0.0",
-    "resolve": "^1.1.0",
-    "through2": "^2.0.0"
+    "lodash": "^4.6.1",
+    "opn": "^4.0.1",
+    "resolve": "^1.1.7",
+    "through2": "^2.0.1"
   }
 }
 
