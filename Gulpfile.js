@@ -3,9 +3,9 @@
 var fs = require('fs');
 var gulp = require('gulp');
 var pack = require('./package.json');
-var tasks = require('vcl-build-demo');
+var tasks = require('@vcl/build-demo');
 
-var vcl = require('gulp-vcl-preprocessor');
+var vcl = require('@vcl/gulp-vcl-preprocessor');
 
 var styles = [];
 var stylesFilename = 'demo/styles.json';
